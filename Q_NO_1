@@ -1,0 +1,15 @@
+def romanToInt(s):
+    roman_values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    result = 0
+    prev = 0
+
+    for c in s:
+        value = roman_values[c]
+        if value > prev:
+            result -= 2 * prev
+        result += value
+        prev = value
+
+    return result
+print(romanToInt("III"))  # Output: 3
+print(romanToInt("LVIII"))  # Output: 58
